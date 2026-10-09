@@ -7,6 +7,7 @@ const txtFecha = document.getElementById('txtFecha');
 const txtTipo = document.getElementById('txtTipo');
 const txtCategoria = document.getElementById('txtCategoria');
 const txtDescripcion = document.getElementById('txtDescripcion');
+const txtMonto = document.getElementById('txtMonto');
 const btnGuardar = document.getElementById('btnGuardar');
 const btnCancelar= document.getElementById('btnCancelar');
 const movimientosTable = document.getElementById('movimientosTable');
@@ -32,6 +33,8 @@ async function loadMovimientos() {
                     <td>${movimiento.txtTipo}</td>
                     <td>${movimiento.txtCategoria}</td>
                     <td>${movimiento.txtDescripcion}</td>
+                    <td>${movimiento.txtMonto}</td>
+
                     
                     <td>
                         <button class="btn btn-primary btn-sm" onclick="editMovimiento(${movimiento.idMovimiento})">Editar</button>
@@ -52,7 +55,9 @@ movimientoForm.addEventListener('submit', async function(event) {
     const txtTipo = txtTipo.value.trim();
     const txtCategoria = txtCategoria.value.trim();
     const txtDescripcion = txtDescripcion.value.trim();
-    if (fecha === '' || tipo === '' || categoria === '' || descripcion === '') {
+    const txtMonto = txtMonto.value.trim();
+
+    if (txtFecha === '' || txtTipo === '' || txtCategoria === '' || txtDescripcion === '' || txtMonto === '') {
         alert("Por favor, complete todos los campos");
         return;
     }
@@ -63,7 +68,8 @@ const movimientoData = {
         txtFecha : fecha,
         txtTipo: tipo,
         txtCategoria: categoria,
-        txtDescripcion: descripcion
+        txtDescripcion: descripcion,
+        txtMonto: monto
     };
     try {
         if (IdMovimiento  == ""){
@@ -113,12 +119,14 @@ async function removeMovimientos(IdMovimiento) {
 async function addMovimientosData(IdMovimiento) {
     try {
         const movimiento = await getMovimientoById(IdMovimiento);
+        IdMovimiento.value = movimiento.IdMovimiento;
         selCuenta.value = movimiento.selCuenta;
         txtFecha.value = movimiento.txtFecha;
         txtTipo.value = movimiento.txtTipo;
         txtCategoria.value = movimiento.txtCategoria;
         txtDescripcion.value = movimiento.txtDescripcion;
-        IdMovimiento.value = movimiento.IdMovimiento;
+        txtMonto.value = movimiento.txtMonto;
+        
         btnGuardar.textContent = "Actualizar Movimiento";
         btnCancelar.classList.remove("d-none");
     } catch (error) {

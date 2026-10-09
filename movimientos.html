@@ -49,6 +49,10 @@
             <label for="txtDescripcion" class="form-label">Descripcion</label>
             <input type="text" class="form-control" id="txtDescripcion" required>
           </div>
+          <div class="mb-3">
+            <label for="txtMonto" class="form-label">Monto</label>
+            <input type="number" class="form-control" id="txtMonto" required>
+          </div>
           <div class="form-group my-3">
             <button type="submit" class="btn btn-success">Guardar</button>
             <button type="button" class="btn btn-secondary" id="btnCancelar">Cancelar</button>
@@ -71,6 +75,7 @@
               <th>Categoria</th>
               <th>Descripcion</th>
               <th>Acciones</th>
+              <th>Monto</th>
             </tr>
           </thead>
           <tbody id="movimientosTableBody">
