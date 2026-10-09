@@ -48,10 +48,10 @@ movimientoForm.addEventListener('submit', async function(event) {
     event.preventDefault();
     const IdMovimiento = IdMovimiento.value.trim();
     const selCuenta = selCuenta.value.trim();
-    const fecha = txtFecha.value.trim();
-    const tipo = txtTipo.value.trim();
-    const categoria = txtCategoria.value.trim();
-    const descripcion = txtDescripcion.value.trim();
+    const txtFecha = txtFecha.value.trim();
+    const txtTipo = txtTipo.value.trim();
+    const txtCategoria = txtCategoria.value.trim();
+    const txtDescripcion = txtDescripcion.value.trim();
     if (fecha === '' || tipo === '' || categoria === '' || descripcion === '') {
         alert("Por favor, complete todos los campos");
         return;
