@@ -58,11 +58,12 @@ movimientoForm.addEventListener('submit', async function(event) {
     }
 
 const movimientoData = {
+        IdMovimiento: IdMovimiento,
         selCuenta : selCuenta,
-        fecha : fecha,
-        tipo: tipo,
-        categoria: categoria,
-        descripcion: descripcion
+        txtFecha : fecha,
+        txtTipo: tipo,
+        txtCategoria: categoria,
+        txtDescripcion: descripcion
     };
     try {
         if (IdMovimiento  == ""){
